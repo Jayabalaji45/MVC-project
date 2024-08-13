@@ -1,0 +1,22 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Form</title>
+</head>
+<body>
+<h1 th:text="${item.id != null ? 'Edit Item' : 'Create New Item'}"></h1>
+<form th:action="@{/items}" th:object="${item}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" /><br/>
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" /><br/>
+    <button type="submit">Save</button>
+</form>
+<a href="/items">Back to List</a>
+</body>
+</html>
+
